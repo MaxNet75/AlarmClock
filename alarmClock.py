@@ -183,6 +183,10 @@ labelTime.pack()
 labelTime.place(anchor="center", x=screenWidth/2, y=screenHeight/4, width=350, height=100)
 timeUpdate(labelTimeText)
 
+labelFrameVolume = labelFrame(root, text="Volume", padx=60, pady=60)
+labelFrameVolume.pack()
+labelFrameVolume.place(x=50, y=100)
+
 buttonIncreaseVolume=tkinter.Button(root, text="+", command=lambda:increaseVolume())
 buttonIncreaseVolume.pack()
 buttonIncreaseVolume.place(anchor="center", x=50, y=100, width=50, height=30)
