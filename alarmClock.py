@@ -20,7 +20,7 @@ radioObject=None
 
 def init():
 	# Create data file if not exist
-	if not os.path.isfile('test'):
+	if not os.path.isfile('~/.AlarmClock'):
 		file=open('test', 'wb')
 		pickle.dump(20, file)		# Brightness
 		pickle.dump(50, file)		# Volume
@@ -206,6 +206,10 @@ buttonTurnOnRadio.place(anchor="center", x=screenWidth/2+50, y=screenHeight/2+50
 buttonTurnOffRadio=tkinter.Button(root, text="Off", command=turnOffRadio)
 buttonTurnOffRadio.pack()
 buttonTurnOffRadio.place(anchor="center", x=screenWidth/2-50, y=screenHeight/2+50, width=50, height=30)
+
+buttonTurnOnOffRadio=tkinter.Button(root, text="On", command=turnOnRadio)
+buttonTurnOnOffRadio.pack()
+buttonTurnOnOffRadio.place(anchor="center", x=screenWidth/2-25, y=screenHeight/2+25, width=50, height=30)
 
 for radioKey, radioValue in radioList.items():
 	radiobuttonRadio=tkinter.Radiobutton(root, anchor="w", text=radioValue['name'], variable=radioSelect, value=radioKey)
