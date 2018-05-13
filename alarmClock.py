@@ -60,7 +60,7 @@ def setAlarmClock(time):
 def getVolume():
 	volume=int(subprocess.check_output(['amixer get PCM |grep -oE [0-9]+% |grep -oE [0-9]+'], shell=True))
 	return volume
-	
+
 def setVolume(volume):
 	os.system('amixer set PCM -- '+str(volume)+'% > /dev/null 2>&1')
 
@@ -172,7 +172,7 @@ alarmClockSelect=tkinter.StringVar()
 init()
 
 alarm()
- 
+
 root.overrideredirect(1)
 root.geometry("%dx%d+0+0" % (screenWidth, screenHeight))
 root.wm_title("Alarm clock")
@@ -182,10 +182,6 @@ labelTime=tkinter.Label(root, textvariable=labelTimeText, bg="black", fg="red", 
 labelTime.pack()
 labelTime.place(anchor="center", x=screenWidth/2, y=screenHeight/4, width=350, height=100)
 timeUpdate(labelTimeText)
-
-labelFrameVolume = labelFrame(root, text="Volume", padx=60, pady=60)
-labelFrameVolume.pack()
-labelFrameVolume.place(x=50, y=100)
 
 buttonIncreaseVolume=tkinter.Button(root, text="+", command=lambda:increaseVolume())
 buttonIncreaseVolume.pack()
@@ -239,5 +235,5 @@ buttonDecreaseAlarmMinutes.place(anchor="center", x=screenWidth/2+75, y=screenHe
 buttonExit=tkinter.Button(root, text="Exit", command=exit)
 buttonExit.pack()
 buttonExit.place(anchor="center", x=screenWidth-100, y=screenHeight-50, width=100, height=30)
- 
+
 root.mainloop()
