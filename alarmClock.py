@@ -42,6 +42,9 @@ def timeUpdate(label):
 	labelTimeText.set(time.strftime("%H:%M"))
 	root.after(1000, lambda:timeUpdate(label))
 
+
+
+
 def alarm():
 	if time.strftime("%H:%M") == alarmClockSelect.get():
 		turnOnRadio(radioSelect.get())
@@ -177,6 +180,11 @@ root.overrideredirect(1)
 root.geometry("%dx%d+0+0" % (screenWidth, screenHeight))
 root.wm_title("Alarm clock")
 root.configure(bg="black")
+
+
+buttonOnOff=tkinter.Button(root, text="On")
+buttonOnOff.pack()
+buttonOnOff.place(anchor="center", x=50, y=50, width=50, hight=30)
 
 labelTime=tkinter.Label(root, textvariable=labelTimeText, bg="black", fg="red", font=("arial", 90))
 labelTime.pack()
