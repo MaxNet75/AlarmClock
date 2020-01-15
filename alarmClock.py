@@ -393,7 +393,7 @@ buttonTurnOnRadio = tkinter.Button(root, text="On", command=lambda:turnOnRadio(r
 buttonTurnOnRadio.pack()
 buttonTurnOnRadio.place(anchor="center", x=screenWidth/2+50, y=screenHeight/2+50, width=50, height=30)
 
-buttonTurnOffRadio = tkinter.Button(root, text="Off", command=turnOffRadio(radioSelect.get()))
+buttonTurnOffRadio = tkinter.Button(root, text="Off", command=lambda:turnOffRadio(radioSelect.get()))
 buttonTurnOffRadio.pack()
 buttonTurnOffRadio.place(anchor = 'center', x = screenWidth / 2 - 50, y = screenHeight / 2 + 50, width = 50, height = 30)
 
