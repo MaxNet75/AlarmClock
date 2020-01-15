@@ -12,12 +12,20 @@ import requests
 import configparser
 from math import *
 
+#radioList = {
+#	'1': {'name': 'RTL 2', 'url': 'http://streaming.radio.rtl2.fr/rtl2-1-48-192'},
+#	'2': {'name': 'Europe 1', 'url': 'http://e1-live-mp3-128.scdn.arkena.com/europe1.mp3'},
+#	'3': {'name': 'Fun Radio', 'url': 'http://streaming.radio.funradio.fr/fun-1-48-192'},
+#	'4': {'name': 'Oui FM', 'url': 'http://ouifm.ice.infomaniak.ch/ouifm-high.mp3'},
+#	'5': {'name': 'Nova', 'url': 'http://novazz.ice.infomaniak.ch/novazz-128.mp3'},
+#}
+
 radioList = {
-	'1': {'name': 'RTL 2', 'url': 'http://streaming.radio.rtl2.fr/rtl2-1-48-192'},
-	'2': {'name': 'Europe 1', 'url': 'http://e1-live-mp3-128.scdn.arkena.com/europe1.mp3'},
-	'3': {'name': 'Fun Radio', 'url': 'http://streaming.radio.funradio.fr/fun-1-48-192'},
-	'4': {'name': 'Oui FM', 'url': 'http://ouifm.ice.infomaniak.ch/ouifm-high.mp3'},
-	'5': {'name': 'Nova', 'url': 'http://novazz.ice.infomaniak.ch/novazz-128.mp3'},
+	'1': {'name': 'RTL 2', 'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
+	'2': {'name': 'Europe 1', 'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
+	'3': {'name': 'Fun Radio', 'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
+	'4': {'name': 'Oui FM', 'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
+	'5': {'name': 'Nova', 'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
 
 radioObject=None
@@ -282,20 +290,12 @@ def showMessage(text):
 
 def turnOnRadio(radioId):
 	global radioObject
-	if radioObject is not None:
-		radioObject.terminate()
-#	os.system('sudo rfkill unblock all')
-	if ping():
-		radioObject=subprocess.Popen(['mplayer', radioList[str(radioId)]['url']], stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-	else:
-		showMessage('Pas de connexion internet !')
+	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='ON')
+	
 
 def turnOffRadio():
 	global radioObject
-	if radioObject is not None:
-		radioObject.terminate()
-		radioObject=None
-#		os.system('sudo rfkill block all')
+	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='OFF')
 
 root=tkinter.Tk()
 
