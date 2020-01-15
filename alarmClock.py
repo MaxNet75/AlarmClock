@@ -289,12 +289,10 @@ def showMessage(text):
 	root.after(5000, lambda:message.destroy())
 
 def turnOnRadio(radioId):
-	global radioObject
 	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='ON')
 	
 
-def turnOffRadio():
-	global radioObject
+def turnOffRadio(radioId):
 	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='OFF')
 
 root=tkinter.Tk()
@@ -395,7 +393,7 @@ buttonTurnOnRadio = tkinter.Button(root, text="On", command=lambda:turnOnRadio(r
 buttonTurnOnRadio.pack()
 buttonTurnOnRadio.place(anchor="center", x=screenWidth/2+50, y=screenHeight/2+50, width=50, height=30)
 
-buttonTurnOffRadio = tkinter.Button(root, text="Off", command=turnOffRadio)
+buttonTurnOffRadio = tkinter.Button(root, text="Off", command=turnOffRadio(radioSelect.get()))
 buttonTurnOffRadio.pack()
 buttonTurnOffRadio.place(anchor = 'center', x = screenWidth / 2 - 50, y = screenHeight / 2 + 50, width = 50, height = 30)
 
