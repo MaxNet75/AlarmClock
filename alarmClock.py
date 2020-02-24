@@ -321,6 +321,7 @@ bedroom2OffsetVariable = tkinter.IntVar()
 init()
 alarm()
 bedroom1()
+bedroom2()
 
 
 root.overrideredirect(1)
