@@ -264,7 +264,7 @@ def exit():
 #	os.system('sudo rfkill unblock all')
 
 
-	config['SOUND']['volume'] = str(setVolume())
+	config['SOUND']['volume'] = str(getVolume())
 	config['DISPLAY']['brightness'] = str(getBrightness())
 	config['BEDROOM1']['status'] = str(getBedroom1Status())
 	config['BEDROOM1']['offset'] = str(getBedroom1Offset())
