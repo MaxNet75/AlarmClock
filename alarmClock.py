@@ -12,14 +12,6 @@ import requests
 import configparser
 from math import *
 
-#radioList = {
-#	'1': {'name': 'RTL 2', 'url': 'http://streaming.radio.rtl2.fr/rtl2-1-48-192'},
-#	'2': {'name': 'Europe 1', 'url': 'http://e1-live-mp3-128.scdn.arkena.com/europe1.mp3'},
-#	'3': {'name': 'Fun Radio', 'url': 'http://streaming.radio.funradio.fr/fun-1-48-192'},
-#	'4': {'name': 'Oui FM', 'url': 'http://ouifm.ice.infomaniak.ch/ouifm-high.mp3'},
-#	'5': {'name': 'Nova', 'url': 'http://novazz.ice.infomaniak.ch/novazz-128.mp3'},
-#}
-
 radioList = {
 	'1': {'name': 'RTL 2', 'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
 	'2': {'name': 'Europe 1', 'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
@@ -115,7 +107,8 @@ def clockUpdate(label):
 # Brightness
 #
 def getBrightness():
-        brightness=int(subprocess.check_output(['cat /sys/class/backlight/rpi_backlight/brightness'], shell=True))
+        config['DISPLAY']['brightness']=int(subprocess.check_output(['cat /sys/class/backlight/rpi_backlight/brightness'], shell=True))
+	brightness=config['DISPLAY']['brightness']
         return brightness
 
 def setBrightness(brightness):
