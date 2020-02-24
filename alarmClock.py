@@ -503,6 +503,6 @@ bedroom2OffsetDecrease.place(anchor = 'center', x = bedroom2Frame.winfo_width() 
 #
 buttonExit=tkinter.Button(root, text="Exit", command=exit)
 buttonExit.pack()
-buttonExit.place(anchor="center", x=screenWidth-20, y=screenHeigh/2+20, width=50, height=30)
+buttonExit.place(anchor="center", x=screenWidth-20, y=screenHeight/2+20, width=50, height=30)
 
 root.mainloop()
