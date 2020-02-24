@@ -107,8 +107,7 @@ def clockUpdate(label):
 # Brightness
 #
 def getBrightness():
-        config['DISPLAY']['brightness']=int(subprocess.check_output(['cat /sys/class/backlight/rpi_backlight/brightness'], shell=True))
-	brightness=config['DISPLAY']['brightness']
+        brightness = int(subprocess.check_output(['cat /sys/class/backlight/rpi_backlight/brightness'], shell=True))
         return brightness
 
 def setBrightness(brightness):
@@ -263,6 +262,8 @@ def exit():
 	os.system('sudo xset +dpms')
 	os.system('sudo xset s blank')
 #	os.system('sudo rfkill unblock all')
+
+	config['DISPLAY']['brightness'] = getBrightness()
 	writeConfig(config)
 	setBrightness(40)
 	root.destroy()
