@@ -263,7 +263,15 @@ def exit():
 	os.system('sudo xset s blank')
 #	os.system('sudo rfkill unblock all')
 
-	config['DISPLAY']['brightness'] = str(getBrightness())
+
+	config['SOUND']['volume'] = str(setVolume())
+    	config['DISPLAY']['brightness'] = str(getBrightness())
+    	config['BEDROOM1']['status'] = str(getBedroom1Status())
+    	config['BEDROOM1']['offset'] = str(getBedroom1Offset())
+	config['ALARM']['status'] = str(getAlarmStatus())
+    	config['ALARM']['alarm'] = str(getAlarm())
+    	config['BEDROOM2']['status'] = str(getBedroom2Status())
+    	config['BEDROOM2']['Offset'] = str(getBedroom2Offset())
 	writeConfig(config)
 	setBrightness(40)
 	root.destroy()
