@@ -263,7 +263,7 @@ def exit():
 	os.system('sudo xset s blank')
 #	os.system('sudo rfkill unblock all')
 
-	config['DISPLAY']['brightness'] = getBrightness()
+	config['DISPLAY']['brightness'] = str(getBrightness())
 	writeConfig(config)
 	setBrightness(40)
 	root.destroy()
