@@ -261,8 +261,6 @@ def exit():
 	os.system('sudo xset s on')
 	os.system('sudo xset +dpms')
 	os.system('sudo xset s blank')
-#	os.system('sudo rfkill unblock all')
-
 
 	config['SOUND']['volume'] = str(getVolume())
 	config['DISPLAY']['brightness'] = str(getBrightness())
@@ -467,7 +465,7 @@ buttonDecreaseAlarmMinutes.place(anchor="center", x = alarmFrame.winfo_width() /
 #
 # Bedroom 2
 #
-bedroom2Status = tkinter.Checkbutton(text='Bedroom 2', variable=bedroom2StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+bedroom2Status = tkinter.Checkbutton(image=PhotoImage(file='disabled.png'), selectimage=PhotoImage(file='enabled.png'), text='Bedroom 2', variable=bedroom2StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom2Frame = tkinter.LabelFrame(root, labelwidget=bedroom2Status, bg = 'black', fg = 'red')
 bedroom2Frame.pack()
