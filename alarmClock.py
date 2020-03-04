@@ -83,7 +83,7 @@ def getVolume():
 	return int(res.json()['state'])
 
 def setVolume(volume):
-	res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume', data=volume)
+	res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume', data=str(volume))
 	
 def increaseVolume():
 	setVolume(getVolume()+1)
