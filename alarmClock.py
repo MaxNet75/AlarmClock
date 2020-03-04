@@ -80,9 +80,9 @@ def readConfig():
 # Volume
 #
 def getVolume():
-        res = requests.get('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume')
+	res = requests.get('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume')
 	resJson = json.loads(res)
-        return resJson['state']
+	return resJson['state']
 
 def setVolume(volume):
 	res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume', data=volume)
