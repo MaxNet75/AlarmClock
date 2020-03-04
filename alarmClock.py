@@ -11,7 +11,6 @@ import urllib.request
 import requests
 import configparser
 from math import *
-import json
 
 radioList = {
 	'1': {'name': 'RTL 2', 'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
@@ -81,8 +80,7 @@ def readConfig():
 #
 def getVolume():
 	res = requests.get('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume')
-	resJson = json.loads(res)
-	return resJson['state']
+	return res.json()['state']
 
 def setVolume(volume):
 	res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume', data=volume)
