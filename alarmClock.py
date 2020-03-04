@@ -11,6 +11,7 @@ import urllib.request
 import requests
 import configparser
 from math import *
+import json
 
 radioList = {
 	'1': {'name': 'RTL 2', 'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
@@ -79,14 +80,15 @@ def readConfig():
 # Volume
 #
 def getVolume():
-        volume=int(subprocess.check_output(['amixer get PCM |grep -oE [0-9]+% |grep -oE [0-9]+'], shell=True))
+        res = requests.get('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume')
+	volume = json.loads(res)['state']
         return volume
 
 def setVolume(volume):
-        os.system('amixer set PCM -- '+str(volume)+'% > /dev/null 2>&1')
-
+	res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume', data=volume)
+	
 def increaseVolume():
-        setVolume(getVolume()+1)
+	setVolume(getVolume()+1)
 
 def decreaseVolume():
         setVolume(getVolume()-1)
