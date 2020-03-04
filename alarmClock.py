@@ -465,8 +465,8 @@ buttonDecreaseAlarmMinutes.place(anchor="center", x = alarmFrame.winfo_width() /
 #
 # Bedroom 2
 #
-imageEnabled = PhotoImage(file='enabled.png')
-imageDisabled = PhotoImage(file='disabled.png')
+imageEnabled = tkinter.PhotoImage(file='enabled.png')
+imageDisabled = tkinter.PhotoImage(file='disabled.png')
 bedroom2Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 2', variable=bedroom2StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom2Frame = tkinter.LabelFrame(root, labelwidget=bedroom2Status, bg = 'black', fg = 'red')
