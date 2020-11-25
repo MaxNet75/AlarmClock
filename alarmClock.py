@@ -399,9 +399,17 @@ buttonTurnOffRadio.pack()
 buttonTurnOffRadio.place(anchor = 'center', x = screenWidth / 2 - 50, y = screenHeight / 2 + 50, width = 50, height = 30)
 
 #
+# Buttons
+#
+imageEnabled = tkinter.PhotoImage(file='enabled.png')
+#imageEnabled.zoom(16, 16)
+imageDisabled = tkinter.PhotoImage(file='disabled.png')
+#imageDisabled.zoom(16, 16)
+
+#
 # Bedroom 1
 #
-bedroom1Status = tkinter.Checkbutton(text='Bedroom 1', variable=bedroom1StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+bedroom1Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 1', variable=bedroom1StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom1Frame = tkinter.LabelFrame(root, labelwidget=bedroom1Status, bg = 'black', fg = 'red')
 bedroom1Frame.pack()
@@ -465,10 +473,6 @@ buttonDecreaseAlarmMinutes.place(anchor="center", x = alarmFrame.winfo_width() /
 #
 # Bedroom 2
 #
-imageEnabled = tkinter.PhotoImage(file='enabled.png')
-#imageEnabled.zoom(16, 16)
-imageDisabled = tkinter.PhotoImage(file='disabled.png')
-#imageDisabled.zoom(16, 16)
 bedroom2Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 2', variable=bedroom2StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom2Frame = tkinter.LabelFrame(root, labelwidget=bedroom2Status, bg = 'black', fg = 'red')
