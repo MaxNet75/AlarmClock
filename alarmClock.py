@@ -410,6 +410,7 @@ imageDisabled = tkinter.PhotoImage(file='disabled.png')
 # Bedroom 1
 #
 bedroom1Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 1', variable=bedroom1StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+bedroom1Status.pack(pady=20)
 
 bedroom1Frame = tkinter.LabelFrame(root, labelwidget=bedroom1Status, bg = 'black', fg = 'red')
 bedroom1Frame.pack()
