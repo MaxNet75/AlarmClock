@@ -291,7 +291,6 @@ def showMessage(text):
 def turnOnRadio(radioId):
 	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='ON')
 	
-
 def turnOffRadio(radioId):
 	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='OFF')
 
@@ -322,7 +321,6 @@ init()
 alarm()
 bedroom1()
 bedroom2()
-
 
 root.overrideredirect(1)
 root.geometry("%dx%d+0+0" % (screenWidth, screenHeight))
