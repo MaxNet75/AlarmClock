@@ -383,7 +383,7 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 for radioKey, radioValue in radioList.items():
-	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="w", text=radioValue['name'], variable=radioSelect, value=radioKey)
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="w", text=radioValue['name'], variable=radioSelect, value=radioKey, indicatoron='false')
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 100, height = 30)
 
@@ -402,13 +402,11 @@ buttonTurnOffRadio.place(anchor = 'center', x = screenWidth / 2 - 50, y = screen
 # Buttons
 #
 imageEnabled = tkinter.PhotoImage(file='enabled.png')
-#imageEnabled.zoom(16, 16)
 imageDisabled = tkinter.PhotoImage(file='disabled.png')
-#imageDisabled.zoom(16, 16)
 
 #
 # Bedroom 1
-#activeforeground='red',
+#
 bedroom1Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 1', variable=bedroom1StatusVariable, indicatoron='false', selectcolor='black', bg='black', activeforeground='black', activebackground='black', highlightbackground='black', fg='red',  font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom1Frame = tkinter.LabelFrame(root, labelwidget=bedroom1Status, bg = 'black', fg = 'red')
