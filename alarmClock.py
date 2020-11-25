@@ -443,7 +443,7 @@ bedroom1OffsetDecrease.place(anchor = 'center', x = bedroom1Frame.winfo_width() 
 #
 # ALARM
 #
-alarmStatus = tkinter.Checkbutton(text='Alarm', variable=alarmStatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+alarmStatus = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Alarm', variable=bedroom1StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 alarmFrame = tkinter.LabelFrame(root, labelwidget=alarmStatus, bg='black', fg='red')
 alarmFrame.pack()
