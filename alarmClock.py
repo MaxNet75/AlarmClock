@@ -408,8 +408,8 @@ imageDisabled = tkinter.PhotoImage(file='disabled.png')
 
 #
 # Bedroom 1
-#
-bedroom1Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 1', variable=bedroom1StatusVariable, indicatoron='false', bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+#activeforeground='red',
+bedroom1Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 1', variable=bedroom1StatusVariable, indicatoron='false', bg='black', activeforeground='black', activebackground='black', fg='red',  font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom1Frame = tkinter.LabelFrame(root, labelwidget=bedroom1Status, bg = 'black', fg = 'red')
 bedroom1Frame.pack()
@@ -443,7 +443,7 @@ bedroom1OffsetDecrease.place(anchor = 'center', x = bedroom1Frame.winfo_width() 
 #
 # ALARM
 #
-alarmStatus = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Alarm', variable=alarmStatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+alarmStatus = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Alarm', variable=alarmStatusVariable, indicatoron='false', bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 alarmFrame = tkinter.LabelFrame(root, labelwidget=alarmStatus, bg='black', fg='red')
 alarmFrame.pack()
@@ -473,7 +473,7 @@ buttonDecreaseAlarmMinutes.place(anchor="center", x = alarmFrame.winfo_width() /
 #
 # Bedroom 2
 #
-bedroom2Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 2', variable=bedroom2StatusVariable, bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
+bedroom2Status = tkinter.Checkbutton(image=imageDisabled, selectimage=imageEnabled, text='Bedroom 2', variable=bedroom2StatusVariable, indicatoron='false', bg='black', activebackground='black', fg='red', activeforeground='red', font=('arial', 15), bd=0, highlightthickness=0, highlightcolor='black')
 
 bedroom2Frame = tkinter.LabelFrame(root, labelwidget=bedroom2Status, bg = 'black', fg = 'red')
 bedroom2Frame.pack()
