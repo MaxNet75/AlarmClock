@@ -95,7 +95,7 @@ def decreaseVolume():
 # Clock
 #
 def getClockInMinutes():
-	printf str(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
+	printf time.strftime("%H")
 	return str(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
 
 def clockUpdate(label):
