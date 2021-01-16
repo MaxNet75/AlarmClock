@@ -174,11 +174,11 @@ def setBedroom1Status(status):
 
 def getBedroom1Offset():
 	global bedroom1OffsetVariable
-	return bedroom1OffsetVariable.get()
+	return int(bedroom1OffsetVariable.get())
 
 def setBedroom1Offset(minutes):
 	global bedroom1OffsetVariable
-	bedroom1OffsetVariable.set(minutes)
+	bedroom1OffsetVariable.set(str(minutes))
 
 def openBedroom1Shutter():
     res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_Rollershutter_Blinds', data='UP')
@@ -199,7 +199,7 @@ def decreaseBedroom1Offset():
 		setBedroom1Offset(int(getBedroom1Offset()) - 1)
 
 def bedroom1():
-	if getBedroom1Status() == 1 and int(getClock()) == int(getAlarm()) + int(getBedroom1Offset()):
+	if getBedroom1Status() == 1 and getClock() == getAlarm() + getBedroom1Offset():
 		openBedroom1Shutter()
 		root.after(60000, lambda:bedroom1())
 	else:
@@ -218,11 +218,11 @@ def setBedroom2Status(status):
 
 def getBedroom2Offset():
 	global bedroom2OffsetVariable
-	return bedroom2OffsetVariable.get()
+	return int(bedroom2OffsetVariable.get())
 
 def setBedroom2Offset(minutes):
 	global bedroom2OffsetVariable
-	bedroom2OffsetVariable.set(minutes)
+	bedroom2OffsetVariable.set(str(minutes))
 
 def openBedroom2Shutter():
     res = requests.post('http://192.168.0.150:8080/rest/items/ChildrensRoom_Rollershutter_Blinds', data='UP')
@@ -236,14 +236,14 @@ def closeBedroom2Shutter():
 
 def increaseBedroom2Offset():
 	if int(getBedroom2Offset()) < 30:
-		setBedroom2Offset(int(getBedroom1Offset()) + 1)
+		setBedroom2Offset(getBedroom2Offset() + 1)
 
 def decreaseBedroom2Offset():
 	if int(getBedroom2Offset()) > 0:
-		setBedroom2Offset(int(getBedroom1Offset()) - 1)
+		setBedroom2Offset(getBedroom2Offset() - 1)
 
 def bedroom2():
-	if getBedroom2Status() == 1 and int(getClock()) == int(getAlarm()) + int(getBedroom2Offset()):
+	if getBedroom2Status() == 1 and getClock() == getAlarm() + getBedroom2Offset():
 		openBedroom2Shutter()
 		root.after(60000, lambda:bedroom2())
 	else:
@@ -272,14 +272,6 @@ def exit():
 	writeConfig(config)
 	setBrightness(40)
 	root.destroy()
-
-def ping():
-	for cpt in range(1, 10):
-		result=os.system('ping -c 1 google.fr >/dev/null 2>&1')
-		if result == 0:
-			return True
-		time.sleep(1)
-	return False
 
 def showMessage(text):
 	message=tkinter.Message(root, text=text)
