@@ -95,7 +95,7 @@ def decreaseVolume():
 # Clock
 #
 def getClockInMinutes():
-	print time.strftime("%H")
+	print str(time.strftime("%H"))
 	return str(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
 
 def clockUpdate(label):
