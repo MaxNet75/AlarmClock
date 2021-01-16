@@ -94,9 +94,9 @@ def decreaseVolume():
 #
 # Clock
 #
-def getClockInMinutes():
-	print(str(int(time.strftime("%H")) * 60 + int(time.strftime("%M"))))
-	return str(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
+def getClock():
+	print(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
+	return int(time.strftime("%H")) * 60 + int(time.strftime("%M"))
 
 def clockUpdate(label):
 	label.set(time.strftime("%H:%M"))
@@ -132,30 +132,30 @@ def setAlarmStatus(status):
 def getAlarm():
 	global alarmLabelVariable
 	array = alarmLabelVariable.get().split(':')
-	return str(int(array[0]) * 60 + int(array[1]))
+	return int(array[0]) * 60 + int(array[1])
 
 def setAlarm(minutes):
 	global alarmLabelVariable
 	alarmLabelVariable.set(str(floor(int(minutes) / 60)).zfill(2)+':'+str(int(minutes) % 60).zfill(2))
 
 def increaseAlarmHours():
-	if int(getAlarm()) < 1380:
+	if getAlarm() < 1380:
 		setAlarm(int(getAlarm()) + 60)
 
 def decreaseAlarmHours():
-	if int(getAlarm()) > 59:
+	if getAlarm() > 59:
 		setAlarm(int(getAlarm()) - 60)
 
 def increaseAlarmMinutes():
-	if int(getAlarm()) < 1439:
-		setAlarm(int(getAlarm()) + 1)
+	if getAlarm() < 1439:
+		setAlarm(getAlarm() + 1)
 
 def decreaseAlarmMinutes():
-	if int(getAlarm()) > 0:
-		setAlarm(int(getAlarm()) - 1)
+	if getAlarm() > 0:
+		setAlarm(getAlarm() - 1)
 
 def alarm():
-	if getAlarmStatus() == 1 and getClockInMinutes() == getAlarm():
+	if getAlarmStatus() == 1 and getClock() == getAlarm():
 		turnOnRadio(radioSelect.get())
 		root.after(60000, lambda:alarm())
 	else:
@@ -199,7 +199,7 @@ def decreaseBedroom1Offset():
 		setBedroom1Offset(int(getBedroom1Offset()) - 1)
 
 def bedroom1():
-	if getBedroom1Status() == 1 and int(getClockInMinutes()) == int(getAlarm()) + int(getBedroom1Offset()):
+	if getBedroom1Status() == 1 and int(getClock()) == int(getAlarm()) + int(getBedroom1Offset()):
 		openBedroom1Shutter()
 		root.after(60000, lambda:bedroom1())
 	else:
@@ -243,7 +243,7 @@ def decreaseBedroom2Offset():
 		setBedroom2Offset(int(getBedroom1Offset()) - 1)
 
 def bedroom2():
-	if getBedroom2Status() == 1 and int(getClockInMinutes()) == int(getAlarm()) + int(getBedroom2Offset()):
+	if getBedroom2Status() == 1 and int(getClock()) == int(getAlarm()) + int(getBedroom2Offset()):
 		openBedroom2Shutter()
 		root.after(60000, lambda:bedroom2())
 	else:
