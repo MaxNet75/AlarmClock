@@ -381,7 +381,7 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 for radioKey, radioValue in radioList.items():
-	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRTL2, text=radioValue['name'], variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=tkinter.PhotoImage(file='rtl2.png'), text=radioValue['name'], variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
