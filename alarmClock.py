@@ -13,11 +13,11 @@ import configparser
 from math import *
 
 radioList = {
-	'1': {'name': 'RTL 2', 'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
-	'2': {'name': 'Europe 1', 'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
-	'3': {'name': 'Fun Radio', 'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
-	'4': {'name': 'Oui FM', 'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
-	'5': {'name': 'Nova', 'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
+    '1': {'name': 'RTL 2', 'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
+    '2': {'name': 'Europe 1', 'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
+    '3': {'name': 'Fun Radio', 'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
+    '4': {'name': 'Oui FM', 'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
+    '5': {'name': 'Nova', 'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
 
 radioObject=None
@@ -89,13 +89,12 @@ def increaseVolume():
 	setVolume(getVolume()+1)
 
 def decreaseVolume():
-        setVolume(getVolume()-1)
+	setVolume(getVolume()-1)
 
 #
 # Clock
 #
-def getClock():
-	print(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
+def getTimeInMinutes():
 	return int(time.strftime("%H")) * 60 + int(time.strftime("%M"))
 
 def clockUpdate(label):
@@ -106,17 +105,17 @@ def clockUpdate(label):
 # Brightness
 #
 def getBrightness():
-        brightness = int(subprocess.check_output(['cat /sys/class/backlight/rpi_backlight/brightness'], shell=True))
-        return brightness
+	brightness = int(subprocess.check_output(['cat /sys/class/backlight/rpi_backlight/brightness'], shell=True))
+	return brightness
 
 def setBrightness(brightness):
-        os.system('sudo bash -c "echo '+str(brightness)+' > /sys/class/backlight/rpi_backlight/brightness"')
+	os.system('sudo bash -c "echo '+str(brightness)+' > /sys/class/backlight/rpi_backlight/brightness"')
 
 def increaseBrightness():
-        setBrightness(getBrightness()+1)
+	setBrightness(getBrightness()+1)
 
 def decreaseBrightness():
-        setBrightness(getBrightness()-1)
+	setBrightness(getBrightness()-1)
 
 #
 # Alarm
@@ -129,7 +128,7 @@ def setAlarmStatus(status):
 	global alarmStatusVariable
 	alarmStatusVariable.set(status)
 
-def getAlarm():
+def getAlarmInMinutes():
 	global alarmLabelVariable
 	array = alarmLabelVariable.get().split(':')
 	return int(array[0]) * 60 + int(array[1])
@@ -139,23 +138,23 @@ def setAlarm(minutes):
 	alarmLabelVariable.set(str(floor(int(minutes) / 60)).zfill(2)+':'+str(int(minutes) % 60).zfill(2))
 
 def increaseAlarmHours():
-	if getAlarm() < 1380:
-		setAlarm(int(getAlarm()) + 60)
+	if getAlarmInMinutes() < 1380:
+		setAlarm(getAlarmInMinutes() + 60)
 
 def decreaseAlarmHours():
-	if getAlarm() > 59:
-		setAlarm(int(getAlarm()) - 60)
+	if getAlarmInMinutes() > 59:
+		setAlarm(getAlarmInMinutes() - 60)
 
 def increaseAlarmMinutes():
-	if getAlarm() < 1439:
-		setAlarm(getAlarm() + 1)
+	if getAlarmInMinutes() < 1439:
+		setAlarm(getAlarmInMinutes() + 1)
 
 def decreaseAlarmMinutes():
-	if getAlarm() > 0:
-		setAlarm(getAlarm() - 1)
+	if getAlarmInMinutes() > 0:
+		setAlarm(getAlarmInMinutes() - 1)
 
 def alarm():
-	if getAlarmStatus() == 1 and getClock() == getAlarm():
+	if getAlarmStatus() == 1 and getTimeInMinutes() == getAlarmInMinutes():
 		turnOnRadio(radioSelect.get())
 		root.after(60000, lambda:alarm())
 	else:
@@ -199,7 +198,7 @@ def decreaseBedroom1Offset():
 		setBedroom1Offset(int(getBedroom1Offset()) - 1)
 
 def bedroom1():
-	if getBedroom1Status() == 1 and getClock() == getAlarm() + getBedroom1Offset():
+	if getBedroom1Status() == 1 and getTimeInMinutes() == getAlarmInMinutes() + getBedroom1Offset():
 		openBedroom1Shutter()
 		root.after(60000, lambda:bedroom1())
 	else:
@@ -243,7 +242,7 @@ def decreaseBedroom2Offset():
 		setBedroom2Offset(getBedroom2Offset() - 1)
 
 def bedroom2():
-	if getBedroom2Status() == 1 and getClock() == getAlarm() + getBedroom2Offset():
+	if getBedroom2Status() == 1 and getTimeInMinutes() == getAlarmInMinutes() + getBedroom2Offset():
 		openBedroom2Shutter()
 		root.after(60000, lambda:bedroom2())
 	else:
@@ -266,7 +265,7 @@ def exit():
 	config['BEDROOM1']['status'] = str(getBedroom1Status())
 	config['BEDROOM1']['offset'] = str(getBedroom1Offset())
 	config['ALARM']['status'] = str(getAlarmStatus())
-	config['ALARM']['alarm'] = str(getAlarm())
+	config['ALARM']['alarm'] = str(getAlarmInMinutes())
 	config['BEDROOM2']['status'] = str(getBedroom2Status())
 	config['BEDROOM2']['Offset'] = str(getBedroom2Offset())
 	writeConfig(config)
