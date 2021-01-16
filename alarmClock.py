@@ -16,11 +16,11 @@ from math import *
 # RADIO
 #
 radioList = {
-    '1': {'name': 'RTL 2', 	'image': 'imageRTL2', 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
-    '2': {'name': 'Europe 1',	'image': 'imageEUROPE1',		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
-    '3': {'name': 'Fun Radio',	'image': 'imageFUNRADIO',		'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
-    '4': {'name': 'Oui FM',	'image': 'imageOUIFM',		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
-    '5': {'name': 'Nova',	'image': 'imageNOVA',		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
+    '1': {'name': 'RTL 2', 	'image': 'rtl2.png', 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
+    '2': {'name': 'Europe 1',	'image': 'europe1.png',		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
+    '3': {'name': 'Fun Radio',	'image': 'funradio.png',	'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
+    '4': {'name': 'Oui FM',	'image': 'ouifm.png',		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
+    '5': {'name': 'Nova',	'image': 'nova.png',		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
 
 radioObject=None
@@ -325,7 +325,6 @@ root.configure(bg="black")
 #
 imageEnabled = tkinter.PhotoImage(file='enabled.png')
 imageDisabled = tkinter.PhotoImage(file='disabled.png')
-imageRTL2 = tkinter.PhotoImage(file='rtl2.png')
 
 #
 # VOLUME
@@ -381,7 +380,8 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 for radioKey, radioValue in radioList.items():
-	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=tkinter.PhotoImage(file='rtl2.png'), text=radioValue['name'], variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
+	imageRadio = tkinter.PhotoImage(file=radioValue['image'])
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, text=radioValue['name'], variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
