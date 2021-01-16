@@ -12,6 +12,16 @@ import requests
 import configparser
 from math import *
 
+#
+# IMAGES
+#
+imageEnabled = tkinter.PhotoImage(file='enabled.png')
+imageDisabled = tkinter.PhotoImage(file='disabled.png')
+imageRTL2 = tkinter.PhotoImage(file='rtl2.png')
+
+#
+# RADIO
+#
 radioList = {
     '1': {'name': 'RTL 2', 	'image': imageRTL2, 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
     '2': {'name': 'Europe 1',	'image': imageEUROPE1,		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
@@ -316,13 +326,6 @@ root.overrideredirect(1)
 root.geometry("%dx%d+0+0" % (screenWidth, screenHeight))
 root.wm_title("Alarm clock")
 root.configure(bg="black")
-
-#
-# IMAGES
-#
-imageEnabled = tkinter.PhotoImage(file='enabled.png')
-imageDisabled = tkinter.PhotoImage(file='disabled.png')
-imageRTL2 = tkinter.PhotoImage(file='rtl2.png')
 
 #
 # VOLUME
