@@ -383,7 +383,7 @@ radioFrame.update()
 for radioKey, radioValue in radioList.items():
 	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRTL2, text=radioValue['name'], variable=radioSelect, value=radioKey, indicatoron='false')
 	radiobuttonRadio.pack()
-	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 300, height = 60)
+	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 100, height = 100)
 
 #
 # ON / OFF
