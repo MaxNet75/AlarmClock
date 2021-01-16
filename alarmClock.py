@@ -94,10 +94,9 @@ def decreaseVolume():
 #
 # Clock
 #
-def getClock():
-	global clockLabelVariable
-	array = clockLabelVariable.get().split(':')
-	return str(int(array[0]) * 60 + int(array[1]))
+def getClockInMinutes():
+	printf str(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
+	return str(int(time.strftime("%H")) * 60 + int(time.strftime("%M")))
 
 def clockUpdate(label):
 	label.set(time.strftime("%H:%M"))
@@ -156,7 +155,7 @@ def decreaseAlarmMinutes():
 		setAlarm(int(getAlarm()) - 1)
 
 def alarm():
-	if getAlarmStatus() == 1 and getClock() == getAlarm():
+	if getAlarmStatus() == 1 and getClockInMinutes() == getAlarm():
 		turnOnRadio(radioSelect.get())
 		root.after(60000, lambda:alarm())
 	else:
@@ -200,7 +199,7 @@ def decreaseBedroom1Offset():
 		setBedroom1Offset(int(getBedroom1Offset()) - 1)
 
 def bedroom1():
-	if getBedroom1Status() == 1 and int(getClock()) == int(getAlarm()) + int(getBedroom1Offset()):
+	if getBedroom1Status() == 1 and int(getClockInMinutes()) == int(getAlarm()) + int(getBedroom1Offset()):
 		openBedroom1Shutter()
 		root.after(60000, lambda:bedroom1())
 	else:
@@ -244,7 +243,7 @@ def decreaseBedroom2Offset():
 		setBedroom2Offset(int(getBedroom1Offset()) - 1)
 
 def bedroom2():
-	if getBedroom2Status() == 1 and int(getClock()) == int(getAlarm()) + int(getBedroom2Offset()):
+	if getBedroom2Status() == 1 and int(getClockInMinutes()) == int(getAlarm()) + int(getBedroom2Offset()):
 		openBedroom2Shutter()
 		root.after(60000, lambda:bedroom2())
 	else:
