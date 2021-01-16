@@ -13,21 +13,14 @@ import configparser
 from math import *
 
 #
-# IMAGES
-#
-imageEnabled = tkinter.PhotoImage(file='enabled.png')
-imageDisabled = tkinter.PhotoImage(file='disabled.png')
-imageRTL2 = tkinter.PhotoImage(file='rtl2.png')
-
-#
 # RADIO
 #
 radioList = {
-    '1': {'name': 'RTL 2', 	'image': imageRTL2, 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
-    '2': {'name': 'Europe 1',	'image': imageEUROPE1,		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
-    '3': {'name': 'Fun Radio',	'image': imageFUNRADIO,		'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
-    '4': {'name': 'Oui FM',	'image': imageOUIFM,		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
-    '5': {'name': 'Nova',	'image': imageNOVA,		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
+    '1': {'name': 'RTL 2', 	'image': 'imageRTL2', 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
+    '2': {'name': 'Europe 1',	'image': 'imageEUROPE1',		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
+    '3': {'name': 'Fun Radio',	'image': 'imageFUNRADIO',		'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
+    '4': {'name': 'Oui FM',	'image': 'imageOUIFM',		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
+    '5': {'name': 'Nova',	'image': 'imageNOVA',		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
 
 radioObject=None
@@ -328,6 +321,13 @@ root.wm_title("Alarm clock")
 root.configure(bg="black")
 
 #
+# IMAGES
+#
+imageEnabled = tkinter.PhotoImage(file='enabled.png')
+imageDisabled = tkinter.PhotoImage(file='disabled.png')
+imageRTL2 = tkinter.PhotoImage(file='rtl2.png')
+
+#
 # VOLUME
 #
 volumeFrame = tkinter.LabelFrame(root, text='Volume', bg = 'black', fg = 'red', font=('arial', 15))
@@ -381,9 +381,9 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 for radioKey, radioValue in radioList.items():
-	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=radioValue['image'], text=radioValue['name'], variable=radioSelect, value=radioKey, indicatoron='false')
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRTL2, text=radioValue['name'], variable=radioSelect, value=radioKey, indicatoron='false')
 	radiobuttonRadio.pack()
-	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 100, height = 30)
+	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 300, height = 60)
 
 #
 # ON / OFF
