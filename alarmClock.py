@@ -379,13 +379,9 @@ radioFrame.pack()
 radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, width = screenWidth, height = screenHeight / 3)
 radioFrame.update()
 
-s = tkinter.ttk.Style(root)
-s.theme_use('clam')
-s.configure('maxRadioButton', borderwidth=0)
-
 for radioKey, radio in radios.items():
 	imageRadio = tkinter.PhotoImage(file=radio['image'])
-	radiobuttonRadio=tkinter.ttk.Radiobutton(radioFrame, style = 'maxRadioButton', anchor = "center", image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false', bd = 0)
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor = "center", image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false', bd = 0)
 	radiobuttonRadio.image = imageRadio
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
