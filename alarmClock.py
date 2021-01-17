@@ -252,7 +252,7 @@ def bedroom2():
 		root.after(1000, lambda:bedroom2())
 
 #
-#
+# EXIT
 #
 def exit():
 	#global radioObject
@@ -380,10 +380,10 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 
-def displayRadio(radioKey, image):
+def displayRadio(radioKey, imagetest):
 	global radioSelect
 	
-	imageRadio = tkinter.PhotoImage(file = image)
+	imageRadio = tkinter.PhotoImage(file = imagetest)
 	radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
