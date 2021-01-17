@@ -382,7 +382,7 @@ radioFrame.update()
 my_objects = []
 
 for radioKey, radioValue in radioList.items():
-	my_objects[radioKey] = tkinter.PhotoImage(file=radioValue['image'])
+	my_objects[1] = tkinter.PhotoImage(file=radioValue['image'])
 	#imageRadio = tkinter.PhotoImage(file=radioValue['image'])
 	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=my_objects[1], variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
 	radiobuttonRadio.pack()
