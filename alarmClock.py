@@ -379,7 +379,7 @@ radioFrame.pack()
 radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, width = screenWidth, height = screenHeight / 3)
 radioFrame.update()
 
-s = ttk.Style(root)
+s = tkinter.ttk.Style(root)
 s.theme_use('clam')
 s.configure('maxRadioButton', borderwidth=0)
 
