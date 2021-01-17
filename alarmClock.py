@@ -382,11 +382,12 @@ radioFrame.update()
 
 def displayRadio(radioKey, imagetest):
 	global radioSelect
-	global imageRadio
+#	global imageRadio
 	
 	
 	imageRadio = tkinter.PhotoImage(file = imagetest)
 	radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
+	radiobuttonRadio.image = imageRadio
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
