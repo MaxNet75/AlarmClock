@@ -380,23 +380,24 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 
-def displayRadio(radioKey, imagetest):
-	global radioSelect
+#def displayRadio(radioKey, imagetest):
+#	global radioSelect
 #	global imageRadio
 	
 	
-	imageRadio = tkinter.PhotoImage(file = imagetest)
-	radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
+#	imageRadio = tkinter.PhotoImage(file = imagetest)
+#	radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
+#	radiobuttonRadio.image = imageRadio
+#	radiobuttonRadio.pack()
+#	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
+
+for radioKey, radio in radios.items():
+	imageRadio = tkinter.PhotoImage(file=radioValue['image'])
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
 	radiobuttonRadio.image = imageRadio
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
-
-for radioKey, radio in radios.items():
-	#imageRadio = tkinter.PhotoImage(file=radioValue['image'])
-	#radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
-	#radiobuttonRadio.pack()
-	#radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
-	displayRadio(radioKey, radio['image'])
+	#displayRadio(radioKey, radio['image'])
 
 #
 # ON / OFF
