@@ -15,7 +15,7 @@ from math import *
 #
 # RADIO
 #
-radioList = {
+radios = {
     '1': {'name': 'RTL 2', 	'image': 'rtl2.png', 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
     '2': {'name': 'Europe 1',	'image': 'europe1.png',		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
     '3': {'name': 'Fun Radio',	'image': 'funradio.png',	'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
@@ -23,7 +23,7 @@ radioList = {
     '5': {'name': 'Nova',	'image': 'nova.png',		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
 
-radioObject=None
+#radioObject=None
 
 # Default config values
 config = configparser.ConfigParser()
@@ -255,10 +255,10 @@ def bedroom2():
 #
 #
 def exit():
-	global radioObject
-	if radioObject is not None:
-		radioObject.terminate()
-		radioObject=None
+	#global radioObject
+	#if radioObject is not None:
+#		radioObject.terminate()
+#		radioObject=None
 	os.system('sudo xset s on')
 	os.system('sudo xset +dpms')
 	os.system('sudo xset s blank')
@@ -380,13 +380,13 @@ radioFrame.place(anchor = 'center', x = screenWidth / 2, y = screenHeight / 2, w
 radioFrame.update()
 
 
-def displayRadio(self, radioKey, image):
+def displayRadio(radioKey, image):
 	global radioSelect
 	
 	imageRadio = tkinter.PhotoImage(file = image)
-	self.radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
-	self.radiobuttonRadio.pack()
-	self.radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
+	radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
+	radiobuttonRadio.pack()
+	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
 for radioKey, radioValue in radioList.items():
 	#imageRadio = tkinter.PhotoImage(file=radioValue['image'])
