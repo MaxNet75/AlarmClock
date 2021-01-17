@@ -389,11 +389,11 @@ def displayRadio(radioKey, image):
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
 for radioKey, radioValue in radioList.items():
-	#imageRadio = tkinter.PhotoImage(file=radioValue['image'])
-	#radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=my_objects[1], variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
-	#radiobuttonRadio.pack()
-	#radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
-	displayRadio(radioKey, 'rtl2.png')
+	imageRadio = tkinter.PhotoImage(file=radioValue['image'])
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
+	radiobuttonRadio.pack()
+	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
+	#displayRadio(radioKey, radioValue['image'])
 
 #
 # ON / OFF
