@@ -282,10 +282,10 @@ def showMessage(text):
 	root.after(5000, lambda:message.destroy())
 
 def turnOnRadio(radioId):
-	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='ON')
+	res = requests.post('http://192.168.0.150:8080/rest/items/'+radios[str(radioId)]['item'], data='ON')
 	
 def turnOffRadio(radioId):
-	res = requests.post('http://192.168.0.150:8080/rest/items/'+radioList[str(radioId)]['item'], data='OFF')
+	res = requests.post('http://192.168.0.150:8080/rest/items/'+radios[str(radioId)]['item'], data='OFF')
 
 root=tkinter.Tk()
 
@@ -386,13 +386,13 @@ def displayRadio(radioKey, image):
 	imageRadio = tkinter.PhotoImage(file = image)
 	radiobuttonRadio = tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg = 'black', activeforeground = 'black', activebackground = 'black', indicatoron = 'false')
 	radiobuttonRadio.pack()
-	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
+	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
 for radioKey, radio in radios.items():
 	#imageRadio = tkinter.PhotoImage(file=radioValue['image'])
 	#radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
 	#radiobuttonRadio.pack()
-	#radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
+	#radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radios) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 	displayRadio(radioKey, radio['image'])
 
 #
