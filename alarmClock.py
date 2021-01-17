@@ -16,7 +16,7 @@ from math import *
 # RADIO
 #
 radioList = {
-    '1': {'name': 'RTL 2', 	'image': 'nova.png', 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
+    '1': {'name': 'RTL 2', 	'image': 'rtl2.png', 		'item': 'ParentsRoom_GoogleHome_Stream_RTL2'},
     '2': {'name': 'Europe 1',	'image': 'europe1.png',		'item': 'ParentsRoom_GoogleHome_Stream_EUROPE1'},
     '3': {'name': 'Fun Radio',	'image': 'funradio.png',	'item': 'ParentsRoom_GoogleHome_Stream_FUN'},
     '4': {'name': 'Oui FM',	'image': 'ouifm.png',		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
@@ -383,17 +383,17 @@ radioFrame.update()
 def displayRadio(radioKey, image):
 	global radioSelect
 	
-	imageRadio = tkinter.PhotoImage(file='rtl2.png')
-	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
+	imageRadio = tkinter.PhotoImage(file = image)
+	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor = 'center', image = imageRadio, variable = radioSelect, value = radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
 	radiobuttonRadio.pack()
 	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
 
 for radioKey, radioValue in radioList.items():
-	imageRadio = tkinter.PhotoImage(file=radioValue['image'])
-	radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
-	radiobuttonRadio.pack()
-	radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
-	#displayRadio(radioKey, radioValue['image'])
+	#imageRadio = tkinter.PhotoImage(file=radioValue['image'])
+	#radiobuttonRadio=tkinter.Radiobutton(radioFrame, anchor="center", image=imageRadio, variable=radioSelect, value=radioKey, bg='black', activeforeground='black', activebackground='black', indicatoron='false')
+	#radiobuttonRadio.pack()
+	#radiobuttonRadio.place(anchor = 'center', x = radioFrame.winfo_width() / (len(radioList) + 1) * int(radioKey), y = radioFrame.winfo_height() / 5, width = 80, height = 80)
+	displayRadio(radioKey, radioValue['image'])
 
 #
 # ON / OFF
