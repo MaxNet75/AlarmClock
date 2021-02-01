@@ -86,7 +86,7 @@ def getVolume():
 	return int(res.json()['state'])
 
 def setVolume(volume):
-	res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_GoogleHome_Volume', data=str(volume))
+	res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_GoogleHome_Volume', data=str(volume))
 	
 def increaseVolume():
 	setVolume(getVolume()+1)
@@ -183,13 +183,13 @@ def setBedroom1Offset(minutes):
 	bedroom1OffsetVariable.set(str(minutes))
 
 def openBedroom1Shutter():
-    res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_Rollershutter_Blinds', data='UP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='UP')
 
 def stopBedroomm1Shutter():
-    res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_Rollershutter_Blinds', data='STOP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='STOP')
 
 def closeBedroom1Shutter():
-    res = requests.post('http://192.168.0.150:8080/rest/items/ParentsRoom_Rollershutter_Blinds', data='DOWN')
+    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='DOWN')
 
 
 def increaseBedroom1Offset():
@@ -227,13 +227,13 @@ def setBedroom2Offset(minutes):
 	bedroom2OffsetVariable.set(str(minutes))
 
 def openBedroom2Shutter():
-    res = requests.post('http://192.168.0.150:8080/rest/items/ChildrensRoom_Rollershutter_Blinds', data='UP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='UP')
 
 def stopBedroomm2Shutter():
-    res = requests.post('http://192.168.0.150:8080/rest/items/ChildrensRoom_Rollershutter_Blinds', data='STOP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='STOP')
 
 def closeBedroom2Shutter():
-    res = requests.post('http://192.168.0.150:8080/rest/items/ChildrensRoom_Rollershutter_Blinds', data='DOWN')
+    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='DOWN')
 
 
 def increaseBedroom2Offset():
@@ -282,10 +282,10 @@ def showMessage(text):
 	root.after(5000, lambda:message.destroy())
 
 def turnOnRadio(radioId):
-	res = requests.post('http://192.168.0.150:8080/rest/items/'+radios[str(radioId)]['item'], data='ON')
+	res = requests.post('http://'+openhab_server+'/rest/items/'+radios[str(radioId)]['item'], data='ON')
 	
 def turnOffRadio(radioId):
-	res = requests.post('http://192.168.0.150:8080/rest/items/'+radios[str(radioId)]['item'], data='OFF')
+	res = requests.post('http://'+openhab_server+'/rest/items/'+radios[str(radioId)]['item'], data='OFF')
 
 root=tkinter.Tk()
 
