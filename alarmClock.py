@@ -84,9 +84,8 @@ def readConfig():
 def getVolume():
 	try:
 		res = requests.get('http://192.168.0.1500:8080/rest/items/ParentsRoom_GoogleHome_Volume')
-		r = requests.get(url, params={'s': thing})
 	except requests.exceptions.RequestException as e:
-		showMessage(exception)
+		showMessage('exception')
 	return int(res.json()['state'])
 
 def setVolume(volume):
