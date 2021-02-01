@@ -22,7 +22,7 @@ radios = {
     '4': {'name': 'Oui FM',	'image': 'ouifm.png',		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
     '5': {'name': 'Nova',	'image': 'nova.png',		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
-
+openhab_server = '192.168.0.152:8080'
 #radioObject=None
 
 # Default config values
@@ -82,10 +82,7 @@ def readConfig():
 # Volume
 #
 def getVolume():
-	try:
-		res = requests.get('http://192.168.0.152:8080/rest/items/ParentsRoom_GoogleHome_Volume')
-	except requests.ConnectionError as e:
-		showMessage('exception '+e)
+	res = requests.get('http://'+openhab_server+'/rest/items/ParentsRoom_GoogleHome_Volume')
 	return int(res.json()['state'])
 
 def setVolume(volume):
