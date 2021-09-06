@@ -22,7 +22,7 @@ radios = {
     '4': {'name': 'Oui FM',	'image': 'ouifm.png',		'item': 'ParentsRoom_GoogleHome_Stream_OUIFM'},
     '5': {'name': 'Nova',	'image': 'nova.png',		'item': 'ParentsRoom_GoogleHome_Stream_NOVA'},
 }
-openhab_server = '192.168.0.150:8080'
+openhab_server = '192.168.0.38:8080'
 #radioObject=None
 
 # Default config values
