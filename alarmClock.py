@@ -82,11 +82,11 @@ def readConfig():
 # Volume
 #
 def getVolume():
-	res = requests.get('http://'+openhab_server+'/rest/items/ParentsRoom_GoogleHome_Volume')
+	res = requests.get('http://'+openhab_server+'/rest/items/ParentsRoom_GoogleHome_Volume', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 	return int(res.json()['state'])
 
 def setVolume(volume):
-	res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_GoogleHome_Volume', data=str(volume))
+	res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_GoogleHome_Volume', data=str(volume), headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 	
 def increaseVolume():
 	setVolume(getVolume()+1)
@@ -183,13 +183,13 @@ def setBedroom1Offset(minutes):
 	bedroom1OffsetVariable.set(str(minutes))
 
 def openBedroom1Shutter():
-    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='UP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='UP', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 def stopBedroomm1Shutter():
-    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='STOP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='STOP', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 def closeBedroom1Shutter():
-    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='DOWN')
+    res = requests.post('http://'+openhab_server+'/rest/items/ParentsRoom_Rollershutter_Blinds', data='DOWN', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 
 def increaseBedroom1Offset():
@@ -227,13 +227,13 @@ def setBedroom2Offset(minutes):
 	bedroom2OffsetVariable.set(str(minutes))
 
 def openBedroom2Shutter():
-    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='UP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='UP', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 def stopBedroomm2Shutter():
-    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='STOP')
+    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='STOP', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 def closeBedroom2Shutter():
-    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='DOWN')
+    res = requests.post('http://'+openhab_server+'/rest/items/ChildrensRoom_Rollershutter_Blinds', data='DOWN', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 
 def increaseBedroom2Offset():
