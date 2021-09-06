@@ -282,10 +282,10 @@ def showMessage(text):
 	root.after(5000, lambda:message.destroy())
 
 def turnOnRadio(radioId):
-	res = requests.post('http://'+openhab_server+'/rest/items/'+radios[str(radioId)]['item'], data='ON')
+	res = requests.post('http://'+openhab_server+'/rest/items/'+radios[str(radioId)]['item'], data='ON', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 	
 def turnOffRadio(radioId):
-	res = requests.post('http://'+openhab_server+'/rest/items/'+radios[str(radioId)]['item'], data='OFF')
+	res = requests.post('http://'+openhab_server+'/rest/items/'+radios[str(radioId)]['item'], data='OFF', headers={'content-type': 'text/plain', 'Accept': 'application/json'})
 
 root=tkinter.Tk()
 
